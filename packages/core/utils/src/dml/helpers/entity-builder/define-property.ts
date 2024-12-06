@@ -4,8 +4,6 @@ import {
   PropertyMetadata,
   PropertyType,
 } from "@medusajs/types"
-import { MikroOrmBigNumberProperty } from "../../../dal"
-import { generateEntityId, isDefined } from "../../../common"
 import {
   ArrayType,
   BeforeCreate,
@@ -15,6 +13,8 @@ import {
   Property,
   Utils,
 } from "@mikro-orm/core"
+import { generateEntityId, isDefined } from "../../../common"
+import { MikroOrmBigNumberProperty } from "../../../dal"
 import { PrimaryKeyModifier } from "../../properties/primary-key"
 import { applyEntityIndexes } from "../mikro-orm/apply-indexes"
 
@@ -32,6 +32,7 @@ const COLUMN_TYPES: {
   dateTime: "timestamptz",
   number: "integer",
   bigNumber: "numeric",
+  serial: "number",
   text: "text",
   json: "jsonb",
   array: "array",
@@ -51,6 +52,7 @@ const PROPERTY_TYPES: {
   dateTime: "date",
   number: "number",
   bigNumber: "number",
+  serial: "number",
   text: "string",
   json: "any",
   array: "string[]",
